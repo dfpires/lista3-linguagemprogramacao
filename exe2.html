@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script>
+			function inicia(){
+				var lucro = 0;
+				var maiorLucro = 0;
+				var maiorIngresso = 0;
+				var ingresso;
+				var despesa = 200;
+				var qtde = 120;
+				var saida = "Tabela de resultados <br/>";
+				for(ingresso = 5; ingresso >= 1; ingresso = ingresso - 0.50){
+					// calcula lucro
+					lucro = (ingresso * qtde) - despesa;
+					if (lucro > maiorLucro){
+						maiorLucro = lucro;
+						maiorIngresso = ingresso;	
+					}
+					// prepara saída de dados
+					saida = saida + " " + ingresso + " " + qtde + " " + lucro + "<br/>";
+					// prepara para o próximo laço
+					qtde = qtde + 26;
+				}
+				document.getElementById("resultado").innerHTML = saida;	
+				document.getElementById("maisresultado").innerHTML = maiorLucro + " " + maiorIngresso;
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="inicia()"> 
+			Iniciar 
+		</button>
+		<h3 id="resultado"> </h3>
+		<h3 id="maisresultado"></h3>
+	</body>
+</html>

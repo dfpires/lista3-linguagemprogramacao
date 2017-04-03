@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> Exercício 10 - Lista 2 </title>
+		<script>
+			var somaPrimos = 0;
+			function calcularPrimo(){
+				var numero = parseInt(document.getElementById("numero").value);
+				var i;
+				var primo = 1; // assumo que é primo
+				if ((numero == 0) || (numero == 1)){
+					document.getElementById("resposta").innerHTML = "Não é primo";  
+				}
+				else {
+					for(i=2; i < numero; i++){
+						if ((numero % i) == 0){
+							primo = 0; // deixa de ser primo
+							break; // sai do loop
+						}
+					}
+					if (primo == 1){
+						document.getElementById("resposta").innerHTML = "É primo";
+						somaPrimos += numero;
+					}
+					else document.getElementById("resposta").innerHTML = "Não é primo";  
+				}
+				document.getElementById("resposta2").innerHTML = "Soma dos primos: " + somaPrimos;
+			}
+		</script>
+	</head>
+	<body>
+		<h1> Informe um número</h1>
+		<input type="number" id="numero"/>
+		<button onclick="calcularPrimo()"> Calcular </button>
+		<h2 id="resposta"> </h2> 
+		<h2 id="resposta2"> </h2>
+	</body>
+</html>

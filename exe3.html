@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script>
+			function inicia(){
+				var f1 = 0; var f2 = 0; var f3 = 0; var f4 = 0; var f5 = 0;
+				var i;
+				var idade;
+				for(i=1;i<=8;i++){
+					idade = parseInt(prompt("Informe uma idade"));
+					if (idade <=15){
+						f1++;
+					}
+					else if (idade <= 30){
+							f2++;
+						}
+						else if (idade <= 45){
+								f3++;
+							}
+							else if (idade <= 60){
+									f4++
+								}
+								else f5++;
+				}
+				document.getElementById("resultado").innerHTML = f1 + " " + f2 + " " + " " + f3 + " " + f4 + " " + f5;  
+				document.getElementById("maisresultado").innerHTML = f1/8*100 + 
+					" " + f5/8*100;
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="inicia()"> 
+			Iniciar 
+		</button>
+		<h3 id="resultado"> </h3>
+		<h3 id="maisresultado"></h3>
+	</body>
+</html>

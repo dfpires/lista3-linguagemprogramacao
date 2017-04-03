@@ -1,0 +1,44 @@
+<html>
+	<head>
+		Correção da prova
+		<script>
+			function prova(){
+				var nomes = []; 
+				var qtdes = []; 
+				var precos = [];
+				var critico = [];
+				var i; var estoque = 0; var menorQtde, nomeMenor;
+				// entrada de dados
+				for(i=0;i<5;i++){
+					nomes[i] = prompt("Nome");
+					qtdes[i] = parseInt(prompt("Qtde"));
+					precos[i] = parseFloat(prompt("Preço"));
+				}
+				// processamento dos dados
+				menorQtde = qtdes[0]; // inicializa com o primeiro
+				nomeMenor = nomes[0]; // inicializa com o primeiro
+				for(i=0;i<5;i++){
+					estoque = estoque + qtdes[i];	
+	document.getElementById("item2").innerHTML = 
+	document.getElementById("item2").innerHTML + "<br>" + qtdes[i] * precos[i];	
+					if (qtdes[i] < menorQtde){
+						menorQtde = qtdes[i];
+						nomeMenor = nomes[i];
+					}
+					if (qtdes[i] < 10){
+						critico.push(nomes[i]);
+					}
+				}	
+				document.getElementById("item1").innerHTML = "Estoque: " + estoque;
+				document.getElementById("item3").innerHTML = "Nome com menor quantidade: " + nomeMenor;
+				alert(critico);
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="prova()"> Iniciar </button>
+		<h3 id="item1"> </h3>
+		<h3 id="item2"> Preço total de cada produto: </h3>
+		<h3 id="item3"> </h3>
+	</body>	
+</html>

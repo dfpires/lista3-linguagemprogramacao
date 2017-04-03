@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script>
+			function inicia(){
+				var vetorCodigo = new Array(); // declara um vetor
+				var vetorQtde = new Array(); // declara um vetor
+				var i;
+				var codCliente, codProduto, qtdeComprada;
+				// entrada de dados
+				for(i=0;i<10;i++){
+					vetorCodigo[i] = parseInt(prompt("Informe um código: "));
+					vetorQtde[i] = parseInt(prompt("Informe uma quantidade"));
+				}
+				// processamento 
+				codCliente = parseInt(prompt("Informe o código do cliente"));
+				while (codCliente != 0){
+					codProduto = parseInt(prompt("Informe código para compra"));
+					// procura o código em vetorCodigo
+					for(i=0;i<10;i++){
+						if (codProduto == vetorCodigo[i]){ // achou
+							// i é a posição do produto da compra
+							break; // pára de procurar	
+						}
+					}
+					if (i == 10) {// não achou
+						alert("Produto não encontrado");
+					}
+					else {
+						qtdeComprada = parseInt(prompt("Informe qtde para compra"));
+						if (qtdeComprada <= vetorQtde[i]){ // pode comprar
+							vetorQtde[i] -= qtdeComprada; // i é a posição do produto
+							alert("Compra com sucesso");	
+						}
+						else {
+							alert("Sem estoque suficiente");
+						}
+					}
+					codCliente = parseInt(prompt("Informe o código do cliente. Digite 0 para encerrar"));	
+				}
+				alert(vetorCodigo);
+				alert(vetorQtde);	
+				
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="inicia()"> Iniciar Programa </button>
+	</body>
+</html>

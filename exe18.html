@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script>
+			function inicia(){
+				var idade, sexo, salario;
+				var media = 0; var qtde = 0;
+				var maiorIdade, menorIdade;
+				var qtdeMulheres = 0;
+				var menorSalario, idadeMenorSalario, sexoMenorSalario;
+				idade = parseInt(prompt("Informe uma idade"));
+				maiorIdade = idade; menorIdade = idade;
+				while (idade >= 0 ){
+					qtde++;
+					sexo = prompt("Informe o sexo - M/F");
+					salario = parseFloat(prompt("Informe o salario"));
+					if (qtde == 1){
+						menorSalario = salario; // menorSalario é inicializado
+					}
+					if (salario < menorSalario){
+						menorSalario = salario;
+						idadeMenorSalario = idade;
+						sexoMenorSalario = sexo;
+					}
+					media = media + salario;
+					if (idade > maiorIdade){
+						maiorIdade = idade;
+					}
+					if (idade < menorIdade){
+						menorIdade = idade;
+					}
+					if (((sexo == "F") || (sexo == "f")) && (salario <= 200)){
+						qtdeMulheres++;
+					}
+					idade = parseInt(prompt("Informe uma idade. Digite -1 para encerrar"));
+				}
+				media = media / qtde;
+				document.getElementById("resultMedia").innerHTML = " Média de salário " + media;
+				document.getElementById("resultMaiorIdade").innerHTML = " Maior idade " + maiorIdade;
+				document.getElementById("resultMenorIdade").innerHTML = " Menor idade " + menorIdade;
+				document.getElementById("resultQtdeMulheres").innerHTML = " Qtde de mulheres " + qtdeMulheres;
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="inicia()"> Iniciar Programa </button>
+		<h3 id="resultMedia"> </h3>
+		<h3 id="resultMaiorIdade"> </h3>
+		<h3 id="resultMenorIdade"> </h3>
+		<h3 id="resultQtdeMulheres"> </h3>
+	</body>
+</html>
